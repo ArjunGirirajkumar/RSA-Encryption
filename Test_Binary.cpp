@@ -23,32 +23,27 @@ int main()
     cin >> num ;
     system("clear") ;
     int y = num ;
-    while(num > 0) 
+    while(num > 0)
     {
         digits[i] = num % 2 ;
         i++ ;
         num = num/2 ;
     }
+    int b = 0 ;
+    int x[999] ;
     while(i >= 0)
     {
         if (digits[i] == 1)
         {
-            int x = pow(2, i) ;
-            cout << x  ;
-            cout << "                 = 2 to the power of " << i << "\n" ;
+            x[b] = pow(2, i) ;
+            b++ ;
         }
         i = i - 1 ;
     }
-    cout << "          +" ;
-    cout << "\n" << "-----------" ;
-    cout << "\n" << y ;
-    cout << "\n" << "-----------" ;
-    cout << "\n\nDo you want to try again ? (Yes = Y/y, No = N/n) : " ;
-    char yn ;
-    cin >> yn ;
-    if (yn == 'Y' || yn == 'y')
+    int t = 0 ;
+    for (t = 0 ; t <= b ; t++)
     {
-        goto a ;
+        cout << x[t] << "\n" ;
     }
     return 0 ;
 }
