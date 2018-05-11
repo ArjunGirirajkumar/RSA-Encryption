@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <math.h>
 #include <cmath>
@@ -7,22 +8,41 @@
 using namespace std ;
 
 
+int expn(int b, int p)
+{
+    int i = 2 ;
+    long double res ;
+    res = b * b ;
+    while(i < p)
+    {
+        res = res * res ;
+        i = i + i ;
+    }
+    if (p == 0)
+    {
+        return 1 ;
+    }
+    else if (p == 1)
+    {
+        return b ;
+    }
+    else
+    {
+    return res ;
+    }
+}
+
+
 int main()
 {
-    a:
     int i = 0 ;
-    int a ;
     int digits[999] ;
-    for (a = 0 ; a <= 999 ; a++)
-    {
-        digits[a] = 0 ;
-    }
     int num ;
     system("clear") ;
     cout << "Enter a number : " ;
     cin >> num ;
     system("clear") ;
-    int y = num ;
+    int y  ;
     while(num > 0)
     {
         digits[i] = num % 2 ;
@@ -40,10 +60,13 @@ int main()
         }
         i = i - 1 ;
     }
-    int t = 0 ;
-    for (t = 0 ; t <= b ; t++)
+    int base = 45 ;
+    long double reslt = 1 ;
+    while(b >= 0)
     {
-        cout << x[t] << "\n" ;
+        reslt = reslt * expn(base, x[b]) ;
+        b = b - 1 ;
     }
+    cout << reslt ;
     return 0 ;
 }
